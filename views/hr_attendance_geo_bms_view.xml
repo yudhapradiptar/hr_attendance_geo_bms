@@ -1,0 +1,49 @@
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="hr_attendance_geo_bms_view" model="ir.ui.view">
+            <field name="name">hr_attendance_geo_bms_view</field>
+            <field name="model">hr.attendance</field>
+            <field name="inherit_id" ref="hr_attendance.hr_attendance_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr='//form' position='replace'>
+                    <form string="Employee attendances">
+                        <sheet>
+                            <field name="employee_id"/>
+                            <group>
+                                <field name="worked_hours"/>
+                            </group>
+                            <group>
+                                <group>
+                                    <field name="check_in"/>
+                                    <field name="lat_check_in"/>
+                                    <field name="long_check_in"/>
+                                    <field name="maps_link_check_in" widget="url"/>
+                                </group>
+                                <group>
+                                    <field name="check_out"/>
+                                    <field name="lat_check_out"/>
+                                    <field name="long_check_out"/>
+                                    <field name="maps_link_check_out" widget="url"/>
+                                </group>
+                            </group>
+                        </sheet>
+                    </form>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Inherit Form View to Modify it -->
+        <record id="hr_attendance_geo_bms_tree" model="ir.ui.view">
+            <field name="name">hr_attendance_geo_bms_tree</field>
+            <field name="model">hr.attendance</field>
+            <field name="inherit_id" ref="hr_attendance.view_attendance_tree"/>
+            <field name="arch" type="xml">
+                <field name="check_out" position="after">
+                    <field name="worked_hours"/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</odoo>
