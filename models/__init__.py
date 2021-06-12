@@ -1,4 +1,2 @@
-# -*- coding: utf-8 -*-
-
-from . import models
-from . import HrAttendance
+from . import hr_attendance
+from . import hr_employee
