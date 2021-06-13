@@ -1,40 +1,10 @@
-# Copyright 2019 Eficent Business and IT Consulting Services S.L.
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-
 from odoo import fields, models
-from odoo.addons import decimal_precision as dp
-
-UNIT = dp.get_precision("Location")
-
 
 class HrAttendance(models.Model):
     _inherit = "hr.attendance"
-
-    check_in_latitude = fields.Float(
-        "Check-in Latitude",
-        digits=UNIT,
-        readonly=True
-    )
-    check_in_longitude = fields.Float(
-        "Check-in Longitude",
-        digits=UNIT,
-        readonly=True
-    )
-    check_in_maps = fields.Char(
-        "Link Gmaps Check-in",
-        readonly=True
-    )
-    check_out_latitude = fields.Float(
-        "Check-out Latitude",
-        digits=UNIT,
-        readonly=True
-    )
-    check_out_longitude = fields.Float(
-        "Check-out Longitude",
-        digits=UNIT,
-        readonly=True
-    )
-    check_out_maps = fields.Char(
-        "Link Gmaps Check-out",
-        readonly=True
-    )
+    check_in_latitude = fields.Char( "CheckIn Latitude",readonly=True)
+    check_in_longitude = fields.Char( "CheckIn Longitude",readonly=True)
+    check_in_maps = fields.Char("Link Gmaps CheckIn", readonly=True)
+    check_out_latitude = fields.Char( "CheckOut Latitude",readonly=True)
+    check_out_longitude = fields.Char( "CheckOut Longitude",readonly=True)
+    check_out_maps = fields.Char("Link Gmaps CheckOut", readonly=True)
